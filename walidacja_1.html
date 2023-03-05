@@ -1,0 +1,72 @@
+<script>
+    function walidacja() {
+        brak_d = 0;
+        regex_i = /^[A-Z][a-z]{1,25}\s[A-Z][a-z]{1,25}$/;
+        regex_e = /^[A-z0-9]{2,30}@[A-z0-9]{2,30}\.[A-z0-9]{2,30}$/;
+        regex_o = /^[1-6]$/;
+        dfeiv = document.forms[0].elements[0].value;
+        dfeev = document.forms[0].elements[1].value;
+        dfeov = document.forms[0].elements[2].value;
+        dfedv = document.forms[0].elements[3].value;
+        i = " ";
+        e = " ";
+        o = " ";
+        d = " ";
+
+        if (!regex_i.test(dfeiv)) {
+            i = "Wprowadź poprawnie Imię i Nazwisko";
+            brak_d = 1;
+        }
+        if (!regex_e.test(dfeev)) {
+            e = "Podaj prawidłowy adres email";
+            brak_d = 1;
+        }
+        if (!regex_o.test(dfeov)) {
+            o = "Podaj poprawną ocenę";
+            brak_d = 1;
+        }
+        if (!dfedv) {
+            d = "Podaj datę!";
+            brak_d = 1;
+        }
+
+        if (brak_d == 0) {
+            alert("przesłano formularz");
+            document.forms[0].submit();
+        }
+        if (brak_d == 1) {
+            alert(i + '\n' + e + '\n' + o + '\n' + d);
+        }
+    }
+</script>
+
+<form method="get">
+    Uczeń:
+    <hr>
+    <table>
+        <tr>
+            <td>Imię i Nazwisko: </td>
+            <td><input type="text" name="naziimi" title="np. Jan Kowalski">
+            </td>
+        </tr>
+        <tr>
+            <td>Adres e-mail: </td>
+            <td><input type="email" name="email" title="np. jankowalski@gmail.com"></td>
+        </tr>
+        <tr>
+            <td>Ocena: </td>
+            <td><input type="number" name="ocena" title="od 1 do 6"></td>
+        </tr>
+        <tr>
+            <td>Data: </td>
+            <td><input type="date" name="data_o"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="wyślij" onclick="walidacja()">
+                <input type="reset" value="reset">
+            </td>
+        </tr>
+    </table>
+    <hr>
+</form>
