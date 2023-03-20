@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script>
+        aler = "";
+        function wymiar() {
+            k = document.getElementById('k').value;
+            myButton = {
+                color: document.getElementById('k').value,
+                text: document.getElementById('n').value,
+                width: document.getElementById('s').value,
+            }
+            document.getElementById('buton').value = myButton.text;
+            document.getElementById('buton').style.color = myButton.color;
+            document.getElementById('buton').style.width = myButton.width + 'px';
+        }
+        function ale() {
+            alert('Konfiguracja obiektu:\nKolor: ' + myButton.color + '\nNapis: ' + myButton.text + '\nSzerokość: ' + myButton.width);
+        }
+    </script>
+</head>
+
+<body>
+    <b>
+        <p>Konfiguracja obiektu</p>
+    </b>
+    <form>
+        <input type="color" id="k" oninput="this.nextElementSibling.value = ' '+this.value"> kolor:<output>
+            #000000</output><br>
+        <input type="text" id="n"> napis <br>
+        <input type="range" min="2" max="200" id="s" oninput="this.nextElementSibling.value = ' '+this.value+'px'">
+        szerokosc:<output> 101px</output><br>
+        <input type="button" value="ok" onclick="wymiar()">
+    </form><br>
+    <input type="button" id="buton" onclick="ale()">
+
+</body>
+
+</html>
